@@ -1,1 +1,140 @@
 add index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonder World – Stories & Facts from Around the Globe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+    header p {
+      color: #555;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+    .story {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+    .story img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .story h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      color: #0077cc;
+      cursor: pointer;
+    }
+    button#randomBtn {
+      display: block;
+      margin: 20px auto 40px auto;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      background-color: #0077cc;
+      color: white;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button#randomBtn:hover {
+      background-color: #005fa3;
+    }
+    footer {
+      text-align: center;
+      color: #888;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    /* Placeholder for ads */
+    .ad-placeholder {
+      margin: 30px 0;
+      text-align: center;
+      border: 1px dashed #ccc;
+      padding: 15px;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sonder World</h1>
+  <p>Stories & Facts from Around the Globe</p>
+</header>
+
+<section id="storyContainer">
+  <!-- Story will load here -->
+</section>
+
+<button id="randomBtn">Show Me a Random Story</button>
+
+<!-- AdSense placeholder: Paste your AdSense code below this comment -->
+<div class="ad-placeholder">
+  Your Google AdSense ad will appear here.
+</div>
+
+<footer>
+  Created by Sonder | Follow me on TikTok @sonder1
+</footer>
+
+<script>
+  // Fetch stories JSON and show one story at a time
+  let stories = [];
+  let currentStoryIndex = 0;
+
+  async function loadStories() {
+    try {
+      const response = await fetch('data/stories.json');
+      stories = await response.json();
+      showStory(0);
+    } catch (error) {
+      document.getElementById('storyContainer').innerHTML = '<p>Failed to load stories.</p>';
+    }
+  }
+
+  function showStory(index) {
+    if (!stories.length) return;
+    currentStoryIndex = index;
+    const story = stories[index];
+    const container = document.getElementById('storyContainer');
+    container.innerHTML = `
+      <div class="story">
+        ${story.image ? `<img src="${story.image}" alt="${story.title}" />` : ''}
+        <h2>${story.title}</h2>
+        <p>${story.text}</p>
+      </div>
+    `;
+  }
+
+  document.getElementById('randomBtn').addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * stories.length);
+    showStory(randomIndex);
+  });
+
+  loadStories();
+</script>
+
+</body>
+  </html>
