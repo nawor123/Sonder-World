@@ -1,1 +1,17 @@
-
+[
+  {
+    "title": "The Mysterious Glow of the Marfa Lights",
+    "text": "In Texas, strange glowing orbs have been seen floating near the town of Marfa for over a century. Scientists have theories, but the lights still remain unexplained.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Marfa_Lights.jpg/640px-Marfa_Lights.jpg"
+  },
+  {
+    "title": "Japan’s Snow Festival in Sapporo",
+    "text": "Every year, Sapporo hosts a massive snow and ice sculpture festival that attracts millions of visitors from all over the world.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Sapporo_Snow_Festival_2010_03.jpg/640px-Sapporo_Snow_Festival_2010_03.jpg"
+  },
+  {
+    "title": "The Hidden Salt Cathedral of Zipaquirá",
+    "text": "Built deep inside a salt mine in Colombia, this cathedral is carved entirely out of salt rock and is a stunning example of underground architecture.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Catedral_de_Sal_de_Zipaquira_2017-10-22_01.jpg/640px-Catedral_de_Sal_de_Zipaquira_2017-10-22_01.jpg"
+  }
+]
